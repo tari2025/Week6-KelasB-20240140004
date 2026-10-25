@@ -17,51 +17,69 @@
     </header>
 
     <main class="container">
-      <h1>Buat Caption Promosi</h1>
-      <p id="formStatus"></p>
+      <!-- Judul Halaman -->
+      <div class="page-heading">
+        <p class="eyebrow">BIG SHOP</p>
+        <h1>Buat Caption<span>.</span></h1>
+        <p class="description">
+          Isi data di bawah untuk membuat caption promosi.
+        </p>
+      </div>
 
-      <form id="captionForm">
-        <div class="form-group">
-          <label for="productName">Nama Produk</label>
-          <input
-            type="text"
-            id="productName"
-            placeholder="Contoh: Sepatu Sneakers"
-            required
-          />
+      <!-- Kotak Putih (Card) -->
+      <div class="caption-card">
+        <!-- Pesan Error / Sukses -->
+        <p id="formStatus"></p>
+
+        <form id="captionForm">
+          <!-- Ganti form-group jadi field -->
+          <div class="field">
+            <label for="productName">Nama Produk</label>
+            <input
+              type="text"
+              id="productName"
+              placeholder="Contoh: Sepatu Sneakers"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="productPrice">Harga (Rp)</label>
+            <input
+              type="number"
+              id="productPrice"
+              placeholder="Contoh: 250000"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="templateSelect">Pilih Template</label>
+            <select id="templateSelect">
+              <option value="santai">Santai / Gaul</option>
+              <option value="promo">Promo Spesial</option>
+              <option value="formal">Formal / Elegan</option>
+            </select>
+          </div>
+
+          <!-- Ganti btn-primary jadi primary-button -->
+          <button type="submit" class="primary-button">Buat Caption</button>
+        </form>
+
+        <div class="result-group">
+          <div class="field">
+            <label for="captionResult">Hasil Caption</label>
+            <textarea
+              id="captionResult"
+              rows="8"
+              placeholder="Caption akan muncul di sini..."
+            ></textarea>
+          </div>
+          <!-- Ganti btn-secondary jadi secondary-button -->
+          <button type="button" id="copyButton" class="secondary-button">
+            Salin Caption
+          </button>
         </div>
-
-        <div class="form-group">
-          <label for="productPrice">Harga (Rp)</label>
-          <input
-            type="number"
-            id="productPrice"
-            placeholder="Contoh: 250000"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="templateSelect">Pilih Template</label>
-          <select id="templateSelect">
-            <option value="santai">Santai / Gaul</option>
-            <option value="promo">Promo Spesial</option>
-            <option value="formal">Formal / Elegan</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn-primary">Buat Caption</button>
-      </form>
-
-      <div class="result-group">
-        <textarea
-          id="captionResult"
-          rows="10"
-          placeholder="Caption akan muncul di sini..."
-        ></textarea>
-        <button type="button" id="copyButton" class="btn-secondary">
-          Salin Caption
-        </button>
       </div>
     </main>
   </body>

@@ -1,7 +1,3 @@
-/**
- * FORM CAPTION - BIG SHOP
- */
-
 // 1. Ambil semua elemen HTML yang dibutuhkan
 const captionForm = document.getElementById("captionForm");
 const productNameInput = document.getElementById("productName");
@@ -11,7 +7,7 @@ const captionResult = document.getElementById("captionResult");
 const formStatus = document.getElementById("formStatus");
 const copyButton = document.getElementById("copyButton");
 
-// 2. Fungsi untuk format Rupiah
+// 2. Format harga Rupiah
 function formatRupiah(price) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -20,7 +16,7 @@ function formatRupiah(price) {
   }).format(price);
 }
 
-// 3. Fungsi menampilkan pesan status (sukses / error)
+// 3. Tampilkan pesan status (sukses / error)
 function showFormStatus(message, type) {
   if (formStatus) {
     formStatus.textContent = message;
@@ -28,68 +24,37 @@ function showFormStatus(message, type) {
   }
 }
 
-// 4. Fungsi mengambil data dari URL (jika user klik dari halaman katalog)
+// 4. Ambil data produk dari URL (jika dari halaman katalog)
 function loadProductFromURL() {
   const params = new URLSearchParams(window.location.search);
   const product = params.get("product");
   const price = params.get("price");
 
-  // Jika ada data 'product' di URL, isi otomatis ke input
   if (product !== null && productNameInput) {
     productNameInput.value = decodeURIComponent(product);
   }
 
-  // Jika ada data 'price' di URL, isi otomatis ke input
   if (price !== null && price !== "" && Number(price) >= 0 && productPriceInput) {
     productPriceInput.value = price;
   }
 }
 
-// 5. Fungsi membuat teks caption berdasarkan template
+// 5. Logika pembuatan caption
 function generateCaption(name, price, template) {
   const formattedPrice = formatRupiah(price);
 
   if (template === "promo") {
-    return `🔥 PROMO SPESIAL HARI INI! 🔥
-
-Siapa yang sudah menunggu ${name}? Sekarang hadir dengan harga menarik!
-
- Cuma ${formattedPrice} saja!
- Kualitas terbaik
- Produk pilihan
- Cocok untuk kebutuhanmu
-
-Jangan sampai kehabisan!
-Yuk, dapatkan ${name} sekarang juga!
-
-#Promo #ProdukPilihan #BelanjaHemat`;
+    return `🔥 PROMO SPESIAL HARI INI! 🔥\n\nSiapa yang sudah menunggu ${name}? Sekarang hadir dengan harga menarik!\n\n💰 Cuma ${formattedPrice} saja!\n✅ Kualitas terbaik\n✅ Produk pilihan\n\nJangan sampai kehabisan!\nYuk, dapatkan ${name} sekarang juga!\n\n#Promo #ProdukPilihan #BelanjaHemat`;
   }
 
   if (template === "formal") {
-    return `Perkenalkan, ${name}.
-
-Produk pilihan untuk memenuhi kebutuhan Anda dengan harga ${formattedPrice}.
-
-Kami mengutamakan kualitas dan kenyamanan dalam setiap pilihan produk.
-
-Terima kasih telah mempercayai kami.
-
-#ProdukPilihan #KualitasTerbaik`;
+    return `Perkenalkan, ${name}.\n\nProduk pilihan untuk memenuhi kebutuhan Anda dengan harga ${formattedPrice}.\n\nKami mengutamakan kualitas dan kenyamanan.\n\nTerima kasih telah mempercayai kami.\n\n#ProdukPilihan #KualitasTerbaik`;
   }
 
-  // Default: Template Santai
-  return `Hai, teman-teman! 👋
-
-Kenalan yuk dengan ${name}! ✨
-
-Harganya cuma ${formattedPrice}. Cocok untuk kamu yang sedang mencari produk menarik!
-
-Yuk, dapatkan sekarang juga! 🛍️
-
-#Belanja #ProdukFavorit #Rekomendasi`;
+  return `Hai, teman-teman! 👋\n\nKenalan yuk dengan ${name}! ✨\n\nHarganya cuma ${formattedPrice}. Cocok untuk kamu!\n\nYuk, dapatkan sekarang juga! 🛍️\n\n#Belanja #ProdukFavorit #Rekomendasi`;
 }
 
-// 6. Event Listener saat form di-submit (Tombol "Buat Caption" ditekan)
+// 6. Event saat tombol "Buat Caption" ditekan
 if (captionForm) {
   captionForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Mencegah halaman reload
@@ -99,20 +64,20 @@ if (captionForm) {
     const price = Number(priceValue);
     const template = templateSelect.value;
 
-    // Validasi: Cek apakah input kosong atau harga minus
+    // Validasi sederhana
     if (!name || priceValue.trim() === "" || !Number.isFinite(price) || price < 0) {
       captionResult.value = "";
       showFormStatus("Nama produk dan harga wajib diisi dengan benar.", "error");
       return;
     }
 
-    // Generate caption dan tampilkan di textarea
+    // Tampilkan hasil caption
     captionResult.value = generateCaption(name, price, template);
     showFormStatus("Caption berhasil dibuat!", "success");
   });
 }
 
-// 7. Event Listener saat tombol "Salin Caption" diklik
+// 7. Event saat tombol "Salin Caption" ditekan
 if (copyButton) {
   copyButton.addEventListener("click", async () => {
     const caption = captionResult.value.trim();
@@ -122,21 +87,14 @@ if (copyButton) {
       return;
     }
 
-    // Copy ke clipboard
     try {
       await navigator.clipboard.writeText(caption);
       showFormStatus("Caption berhasil disalin!", "success");
     } catch (error) {
-      // Fallback jika browser memblokir API clipboard
       captionResult.focus();
       captionResult.select();
-      const copied = document.execCommand("copy");
-
-      if (copied) {
-        showFormStatus("Caption berhasil disalin!", "success");
-      } else {
-        showFormStatus("Gagal menyalin. Silakan salin manual.", "error");
-      }
+      document.execCommand("copy");
+      showFormStatus("Caption berhasil disalin!", "success");
     }
   });
 }

@@ -16,7 +16,7 @@
 body {
   margin: 0;
   color: var(--text);
-  background: var(--white);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,6 +32,7 @@ a {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
+  background: var(--white);
 }
 
 .brand {
@@ -96,12 +97,13 @@ h1 {
   line-height: 1.7;
 }
 
+/* --- KOTAK FORM (BOUNDARIES DIPERTEBAL) --- */
 .caption-card {
-  padding: 30px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  padding: 35px;
+  border: 3px solid var(--blue); /* Garis pinggir dipertebal jadi 3px warna biru */
+  border-radius: 16px;
   background: var(--white);
-  box-shadow: 0 8px 28px #1646810d;
+  box-shadow: 0 10px 30px rgba(22, 70, 129, 0.15); /* Bayangan sedikit dipertegas */
 }
 
 .field {
@@ -118,24 +120,27 @@ h1 {
   text-transform: uppercase;
 }
 
+/* Input diberi garis pinggir lebih tegas */
 input,
 select,
 textarea {
   width: 100%;
   padding: 14px 15px;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border); /* Dipertebal jadi 2px */
   border-radius: 8px;
   color: var(--text);
-  background: var(--white);
+  background: #fafafa;
   font: inherit;
   outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px #16468118;
+  box-shadow: 0 0 0 3px rgba(22, 70, 129, 0.15);
+  background: var(--white);
 }
 
 textarea {
@@ -143,15 +148,17 @@ textarea {
   line-height: 1.7;
 }
 
+/* TOMBOL */
 .primary-button,
 .secondary-button {
   display: block;
   width: 100%;
-  padding: 14px;
-  border-radius: 7px;
+  padding: 15px;
+  border-radius: 8px;
   font: inherit;
   font-weight: 800;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .primary-button {
@@ -163,38 +170,43 @@ textarea {
 
 .primary-button:hover {
   background: #dc5c0c;
+  transform: translateY(-2px);
 }
 
 .secondary-button {
-  border: 1px solid var(--blue);
+  border: 2px solid var(--blue);
   color: var(--blue);
   background: var(--white);
 }
 
 .secondary-button:hover {
   background: #eff6ff;
+  transform: translateY(-2px);
 }
 
+/* PESAN STATUS */
 #formStatus {
   display: none;
   margin: 0 0 20px;
-  padding: 12px;
-  border-radius: 7px;
+  padding: 15px;
+  border-radius: 8px;
   font-size: 14px;
+  text-align: center;
+  font-weight: bold;
 }
 
 #formStatus.success {
   display: block;
   color: var(--blue);
   background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  border: 2px solid #bfdbfe;
 }
 
 #formStatus.error {
   display: block;
   color: var(--red);
   background: #fef2f2;
-  border: 1px solid #fecaca;
+  border: 2px solid #fecaca;
 }
 
 footer {
@@ -203,6 +215,8 @@ footer {
   color: var(--muted);
   text-align: center;
   font-size: 12px;
+  margin-top: 50px;
+  background: var(--white);
 }
 
 @media (max-width: 600px) {
