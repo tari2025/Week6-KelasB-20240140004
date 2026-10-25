@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Shop | Buat Caption</title>
+    <link rel="stylesheet" href="./css/form.css" />
+    <script src="./js/form.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="./index.html" class="brand">Big Shop<span>.</span></a>
+      <nav>
+        <a href="./index.html">Etalase</a>
+        <a href="./form.html" class="active">Caption</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Buat Caption Promosi</h1>
+      <p id="formStatus"></p>
+
+      <form id="captionForm">
+        <div class="form-group">
+          <label for="productName">Nama Produk</label>
+          <input
+            type="text"
+            id="productName"
+            placeholder="Contoh: Sepatu Sneakers"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="productPrice">Harga (Rp)</label>
+          <input
+            type="number"
+            id="productPrice"
+            placeholder="Contoh: 250000"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="templateSelect">Pilih Template</label>
+          <select id="templateSelect">
+            <option value="santai">Santai / Gaul</option>
+            <option value="promo">Promo Spesial</option>
+            <option value="formal">Formal / Elegan</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary">Buat Caption</button>
+      </form>
+
+      <div class="result-group">
+        <textarea
+          id="captionResult"
+          rows="10"
+          placeholder="Caption akan muncul di sini..."
+        ></textarea>
+        <button type="button" id="copyButton" class="btn-secondary">
+          Salin Caption
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

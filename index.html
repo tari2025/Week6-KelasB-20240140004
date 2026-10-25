@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Shop | Katalog</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="./index.html" class="brand">Big Shop<span>.</span></a>
+      <nav>
+        <a href="./index.html" class="active">Etalase</a>
+        <a href="./form.html">Caption</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">PRODUCT CATALOGUE</p>
+        <h1>Temukan Produk<span>.</span></h1>
+        <p class="description">
+          Jelajahi produk favoritmu dari berbagai kategori dan buat caption
+          promosi dengan mudah.
+        </p>
+      </section>
+
+      <section class="toolbar">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Cari nama produk..."
+          aria-label="Cari nama produk"
+        />
+
+        <select id="categorySelect" aria-label="Filter kategori">
+          <option value="">Semua kategori</option>
+        </select>
+      </section>
+
+      <p id="status" role="status" aria-live="polite">Memuat produk...</p>
+
+      <section
+        id="productGrid"
+        class="product-grid"
+        aria-label="Daftar produk"
+      ></section>
+    </main>
+
+    <footer>PAW WEEK 5 — FETCH API &amp; DOM</footer>
+  </body>
+</html>
