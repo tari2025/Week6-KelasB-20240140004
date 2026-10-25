@@ -5,6 +5,7 @@ hasil coding
 <br/>
 <img width="915" height="471" alt="{5BDCAC5E-E318-4AA2-89CD-96B5EA063911}" src="https://github.com/user-attachments/assets/0db1a0d0-10a6-45da-86d9-9fb4974b6454" />
 <br/>
-<img width="853" height="480" alt="{DEC5B090-4FDE-4801-8F8A-EA1CDABD48D9}" src="https://github.com/user-attachments/assets/f8a658dd-53a9-43fc-af80-7caba3e98d2d" />
+<img width="864" height="501" alt="{EBA0D650-C586-4555-972D-FF89043EC94C}" src="https://github.com/user-attachments/assets/2ddb5e91-d1a0-43ef-b30b-83f7dd9dbe20" />
+
 
 <br/>
