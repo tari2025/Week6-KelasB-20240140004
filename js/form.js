@@ -54,10 +54,10 @@ function generateCaption(name, price, template) {
 
 Siapa yang sudah menunggu ${name}? Sekarang hadir dengan harga menarik!
 
-💰 Cuma ${formattedPrice} saja!
-✅ Kualitas terbaik
-✅ Produk pilihan
-✅ Cocok untuk kebutuhanmu
+ Cuma ${formattedPrice} saja!
+ Kualitas terbaik
+ Produk pilihan
+ Cocok untuk kebutuhanmu
 
 Jangan sampai kehabisan!
 Yuk, dapatkan ${name} sekarang juga!

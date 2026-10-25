@@ -3,7 +3,7 @@
  * Fetch API, async/await, JSON, DOM, forEach, event listener.
  */
 
-// 1. URL API (SESUAI INSTRUKSI SOAL)
+// 1. URL API 
 const API_URL = "https://dummyjson.com/products?limit=194";
 
 // 2. Elemen DOM
