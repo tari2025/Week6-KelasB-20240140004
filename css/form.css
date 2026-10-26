@@ -26,7 +26,7 @@ a {
 }
 
 .topbar {
-  height: 76px;
+  min-height: 76px;
   padding: 0 7%;
   display: flex;
   align-items: center;
@@ -50,7 +50,6 @@ nav {
   display: flex;
   gap: 28px;
   align-items: center;
-  height: 100%;
 }
 
 nav a {
@@ -89,7 +88,7 @@ nav a.active {
 h1 {
   margin: 12px 0;
   color: var(--blue);
-  font-size: clamp(42px, 6vw, 58px);
+  font-size: clamp(36px, 6vw, 58px);
 }
 
 .description {
@@ -97,20 +96,20 @@ h1 {
   line-height: 1.7;
 }
 
-/* --- KOTAK FORM (BOUNDARIES DIPERTEBAL) --- */
 .caption-card {
   padding: 35px;
-  border: 3px solid var(--blue); /* Garis pinggir dipertebal jadi 3px warna biru */
+  border: 3px solid var(--blue);
   border-radius: 16px;
   background: var(--white);
-  box-shadow: 0 10px 30px rgba(22, 70, 129, 0.15); /* Bayangan sedikit dipertegas */
+  box-shadow: 0 10px 30px rgba(22, 70, 129, 0.15);
 }
 
 .field {
   margin-bottom: 22px;
 }
 
-.field label {
+.field label,
+.result-section > label {
   display: block;
   margin-bottom: 9px;
   color: var(--blue);
@@ -120,13 +119,12 @@ h1 {
   text-transform: uppercase;
 }
 
-/* Input diberi garis pinggir lebih tegas */
 input,
 select,
 textarea {
   width: 100%;
   padding: 14px 15px;
-  border: 2px solid var(--border); /* Dipertebal jadi 2px */
+  border: 2px solid var(--border);
   border-radius: 8px;
   color: var(--text);
   background: #fafafa;
@@ -148,7 +146,18 @@ textarea {
   line-height: 1.7;
 }
 
-/* TOMBOL */
+.error-message {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+  color: var(--red);
+  font-size: 12px;
+}
+
+[aria-invalid="true"] {
+  border-color: var(--red);
+}
+
 .primary-button,
 .secondary-button {
   display: block;
@@ -162,7 +171,7 @@ textarea {
 }
 
 .primary-button {
-  margin-bottom: 18px;
+  margin: 5px 0 25px;
   border: none;
   color: var(--white);
   background: var(--orange);
@@ -174,6 +183,7 @@ textarea {
 }
 
 .secondary-button {
+  margin-top: 14px;
   border: 2px solid var(--blue);
   color: var(--blue);
   background: var(--white);
@@ -184,11 +194,14 @@ textarea {
   transform: translateY(-2px);
 }
 
-/* PESAN STATUS */
+.result-section {
+  margin-top: 10px;
+}
+
 #formStatus {
   display: none;
-  margin: 0 0 20px;
-  padding: 15px;
+  margin: 18px 0 0;
+  padding: 13px;
   border-radius: 8px;
   font-size: 14px;
   text-align: center;
@@ -210,12 +223,12 @@ textarea {
 }
 
 footer {
+  margin-top: 50px;
   padding: 25px;
   border-top: 1px solid var(--border);
   color: var(--muted);
   text-align: center;
   font-size: 12px;
-  margin-top: 50px;
   background: var(--white);
 }
 

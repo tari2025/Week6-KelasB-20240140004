@@ -17,70 +17,80 @@
     </header>
 
     <main class="container">
-      <!-- Judul Halaman -->
-      <div class="page-heading">
-        <p class="eyebrow">BIG SHOP</p>
+      <section class="page-heading">
+        <p class="eyebrow">CAPTION GENERATOR</p>
         <h1>Buat Caption<span>.</span></h1>
         <p class="description">
-          Isi data di bawah untuk membuat caption promosi.
+          Buat caption promosi produk dengan mudah, pilih template yang sesuai
+          dengan gaya tokomu.
         </p>
-      </div>
+      </section>
 
-      <!-- Kotak Putih (Card) -->
-      <div class="caption-card">
-        <!-- Pesan Error / Sukses -->
-        <p id="formStatus"></p>
-
-        <form id="captionForm">
-          <!-- Ganti form-group jadi field -->
+      <section class="caption-card">
+        <form id="form" novalidate>
           <div class="field">
-            <label for="productName">Nama Produk</label>
+            <label for="nama">Nama Produk</label>
             <input
               type="text"
-              id="productName"
-              placeholder="Contoh: Sepatu Sneakers"
+              id="nama"
+              name="nama"
+              placeholder="Contoh: Kopi Susu Aren"
+              minlength="3"
+              maxlength="60"
+              autocomplete="off"
+              aria-describedby="nama-error"
               required
             />
+            <small class="error-message" id="nama-error"></small>
           </div>
 
           <div class="field">
-            <label for="productPrice">Harga (Rp)</label>
+            <label for="harga">Harga Produk (Rupiah)</label>
             <input
               type="number"
-              id="productPrice"
-              placeholder="Contoh: 250000"
+              id="harga"
+              name="harga"
+              placeholder="Contoh: 25000"
+              min="1000"
+              max="100000000"
+              step="1"
+              aria-describedby="harga-error"
               required
             />
+            <small class="error-message" id="harga-error"></small>
           </div>
 
           <div class="field">
-            <label for="templateSelect">Pilih Template</label>
-            <select id="templateSelect">
-              <option value="santai">Santai / Gaul</option>
+            <label for="template">Pilih Template Caption</label>
+            <select id="template" name="template">
               <option value="promo">Promo Spesial</option>
-              <option value="formal">Formal / Elegan</option>
+              <option value="santai">Santai dan Kekinian</option>
+              <option value="formal">Formal dan Profesional</option>
             </select>
           </div>
 
-          <!-- Ganti btn-primary jadi primary-button -->
           <button type="submit" class="primary-button">Buat Caption</button>
-        </form>
 
-        <div class="result-group">
-          <div class="field">
-            <label for="captionResult">Hasil Caption</label>
+          <div class="result-section">
+            <label for="caption">Hasil Caption</label>
             <textarea
-              id="captionResult"
-              rows="8"
-              placeholder="Caption akan muncul di sini..."
+              id="caption"
+              name="caption"
+              rows="13"
+              placeholder="Caption akan muncul di sini setelah kamu menekan tombol Buat Caption."
+              readonly
             ></textarea>
+
+            <button type="button" id="copyButton" class="secondary-button">
+              Salin Caption
+            </button>
           </div>
-          <!-- Ganti btn-secondary jadi secondary-button -->
-          <button type="button" id="copyButton" class="secondary-button">
-            Salin Caption
-          </button>
-        </div>
-      </div>
+
+          <p id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </section>
     </main>
+
+    <footer>Praktikum PAW WEEK 6 — FETCH API &amp; DOM</footer>
   </body>
 </html>
